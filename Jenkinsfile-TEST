@@ -12,7 +12,7 @@ pipeline {
 	parameters {
 		//string(name:'VERSION', defaultvalue: '', description: 'version do deploy on...'
 		booleanParam (name: 'executeTest', defaultValue: true, description: '')
-		choice(
+		/*choice(
 			name: 'DEPLOY_ENV',
 			choices: [
 			'Dev',
@@ -20,7 +20,7 @@ pipeline {
 			'production'
 			], 
 			description 'select env to deploy...'
-		)		
+		)*/		
 	}
 	
 	stages {
