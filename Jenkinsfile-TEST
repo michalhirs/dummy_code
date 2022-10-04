@@ -6,7 +6,7 @@ pipeline {
 	environment {
 		NPM_REGISTRY_VIRTUAL = 'https:....' //on build
 		NPM_REGISTRY_DEV = 'https:....'     //on publish
-        NPM_TOKEN = ''
+        	NPM_TOKEN = 'bls'
 	}
 
 	parameters {
