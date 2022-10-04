@@ -41,6 +41,14 @@ pipeline {
         			node -v
       				'''				
 			}			
-		}		
+		}
+		stage ("build") {
+			steps {
+				sh  '''
+				npm install
+				npm build
+				'''
+			}
+		}
 	}
 }
