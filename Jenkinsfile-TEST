@@ -24,13 +24,15 @@ pipeline {
 	}
 
 	stages {
-		stage ("checking vars & params"){
-			echo "checking vars & params"
-			echo "---> NPM_REGISTRY_VIRTUAL is: ${NPM_REGISTRY_VIRTUAL}"
-			echo "---> NPM_REGISTRY_DEV is: ${NPM_REGISTRY_DEV}"
-			echo "---> NPM_TOKEN is: ${NPM_TOKEN}"
-			echo "---> DEPLOY_ENV is: ${DEPLOY_ENV}"
-			echo "---> executeTest is: ${executeTest}"
+		stage ("checking vars & params") {
+			steps {
+				echo "checking vars & params"
+				echo "---> NPM_REGISTRY_VIRTUAL is: ${NPM_REGISTRY_VIRTUAL}"
+				echo "---> NPM_REGISTRY_DEV is: ${NPM_REGISTRY_DEV}"
+				echo "---> NPM_TOKEN is: ${NPM_TOKEN}"
+				echo "---> DEPLOY_ENV is: ${DEPLOY_ENV}"
+				echo "---> executeTest is: ${executeTest}"
+			}
 		}
 		
 		stage("checkout") {
