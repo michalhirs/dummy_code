@@ -33,32 +33,7 @@ pipeline {
 				echo "---> DEPLOY_ENV is: ${DEPLOY_ENV}"
 				echo "---> executeTest is: ${executeTest}"
 			}
-		}
+		}		
 		
-		stage("checkout") {
-			checkout scm
-		}
-
-		stage("check npm & node version") {
-			sh '''
-        		npm -v
-        		node -v
-      		'''
-		}
-
-		post {
-			success {
-				echo 'I succeeded!'
-			}
-			failure {
-				emailext attachLog: true,
-						attachmentsPattern: 'build.log',
-						body: '${JELLY_SCRIPT,template = "html"}',
-						mimeType: 'text/html',
-						subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${currentBuild.currentResult}!",
-						to: 'michal.hirshoren@mavenir.com'
-				echo 'I failed :('
-			}
-		}
 	}
 }
