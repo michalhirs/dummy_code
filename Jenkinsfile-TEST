@@ -24,7 +24,7 @@ pipeline {
 	}
 
 	stages {
-		stage {
+		stage ("checking vars & params"){
 			echo "checking vars & params"
 			echo "---> NPM_REGISTRY_VIRTUAL is: ${NPM_REGISTRY_VIRTUAL}"
 			echo "---> NPM_REGISTRY_DEV is: ${NPM_REGISTRY_DEV}"
@@ -32,15 +32,7 @@ pipeline {
 			echo "---> DEPLOY_ENV is: ${DEPLOY_ENV}"
 			echo "---> executeTest is: ${executeTest}"
 		}
-
-		/*stage ("checkout"){
-			steps {
-				git branch: 'dev',
-             credentialsId: 'bebc672b-7af5-4c0f-898b-946590a98f4b',
-             url: 'https://at.mavenir.com/bb/scm/mcu/collar.git'
-			}
-		}*/
-
+		
 		stage("checkout") {
 			checkout scm
 		}
