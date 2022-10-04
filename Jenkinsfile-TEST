@@ -33,7 +33,14 @@ pipeline {
 				echo "---> DEPLOY_ENV is: ${DEPLOY_ENV}"
 				echo "---> executeTest is: ${executeTest}"
 			}
+		}
+		stage ("check npm & node version") {
+			steps {
+				sh '''
+        			npm -v
+        			node -v
+      				'''				
+			}			
 		}		
-		
 	}
 }
